@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#5b63e6">
+<title>BILIMDON — Matematikani oson o‘rgan!</title>
+<style>
+:root{--ink:#20264b;--muted:#68708e;--purple:#625cf0;--blue:#4a9cf5;--yellow:#ffd45c;--pink:#ff8fb4;--mint:#7bdcc5;--paper:#f7f8ff;--white:#fff;--line:#e9eafd;--shadow:0 16px 45px #3c438514}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}button,input{font:inherit}button{cursor:pointer;border:0}.wrap{width:min(1160px,92%);margin:auto}.topbar{position:sticky;top:0;z-index:20;background:#ffffffed;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:23px;letter-spacing:.5px}.brandmark{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--purple),var(--blue));display:grid;place-items:center;color:white;font-size:23px;box-shadow:0 8px 18px #625cf044}.navlinks{display:flex;gap:24px;align-items:center}.navlinks a{color:var(--muted);font-weight:650;text-decoration:none;font-size:14px}.navlinks a:hover{color:var(--purple)}.nav-cta,.primary{background:var(--purple);color:white;border-radius:14px;padding:12px 18px;font-weight:750;box-shadow:0 8px 18px #625cf033}.menu-btn{display:none;background:#f0f0ff;border-radius:12px;padding:10px;color:var(--purple)}
+.hero{padding:56px 0 34px;overflow:hidden}.hero-card{position:relative;border-radius:32px;padding:54px;min-height:390px;background:linear-gradient(115deg,#e7f3ff 0%,#f1edff 55%,#fff3d5 100%);display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:20px;overflow:hidden}.eyebrow{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid #fff;padding:8px 13px;border-radius:999px;color:#5556bd;font-weight:800;font-size:12px;letter-spacing:.4px}.hero h1{font-size:clamp(38px,5.2vw,64px);line-height:1.04;letter-spacing:-2px;margin:20px 0 16px}.hero h1 span{color:var(--purple)}.hero p{color:#626b8c;line-height:1.7;font-size:16px;max-width:530px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}.secondary{background:#fff;color:var(--ink);border:1px solid #e4e5ff;border-radius:14px;padding:12px 18px;font-weight:750}.hero-art{position:relative;min-height:270px;display:grid;place-items:center}.orbit{width:255px;height:255px;border-radius:50%;background:linear-gradient(145deg,#b8dfff,#d8caff);display:grid;place-items:center;box-shadow:inset 0 0 0 18px #ffffff55;position:relative}.book{width:155px;height:125px;border-radius:15px 20px 20px 15px;background:#fff;box-shadow:0 18px 30px #5257a533;transform:rotate(-8deg);display:grid;place-items:center;font-size:64px}.float{position:absolute;background:#fff;border-radius:18px;padding:12px 16px;font-weight:900;box-shadow:var(--shadow);font-size:20px}.f1{top:8px;right:3px;color:#f0a900;transform:rotate(9deg)}.f2{bottom:15px;left:0;color:#5b61e8;transform:rotate(-8deg)}.f3{top:45%;right:-5px;color:#ec78a1;font-size:15px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:22px 0 48px}.stat{background:white;border:1px solid var(--line);border-radius:19px;padding:18px;display:flex;align-items:center;gap:13px;box-shadow:0 5px 20px #3c438508}.stat-icon{width:45px;height:45px;border-radius:14px;display:grid;place-items:center;font-size:22px;background:#f0efff}.stat strong{display:block;font-size:19px}.stat small{color:var(--muted)}
+section{padding:22px 0 48px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:22px}.section-head h2{font-size:clamp(25px,3vw,34px);margin:0 0 7px;letter-spacing:-.8px}.section-head p{margin:0;color:var(--muted)}.tiny-label{color:var(--purple);font-size:11px;font-weight:900;letter-spacing:1.4px;text-transform:uppercase}
+.grade-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}.grade{background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:0 8px 25px #33365c08;transition:.2s;cursor:pointer;text-align:left;color:var(--ink)}.grade:hover,.grade.active{transform:translateY(-5px);border-color:#aaa7ff;box-shadow:0 14px 28px #625cf020}.grade.active{outline:2px solid #c5c2ff}.grade-emoji{width:54px;height:54px;border-radius:17px;display:grid;place-items:center;font-size:28px;margin-bottom:16px}.grade:nth-child(1) .grade-emoji{background:#fff3cf}.grade:nth-child(2) .grade-emoji{background:#e1f8f1}.grade:nth-child(3) .grade-emoji{background:#eeeaff}.grade:nth-child(4) .grade-emoji{background:#ffe9f1}.grade:nth-child(5) .grade-emoji{background:#e4f1ff}.grade b{font-size:17px;display:block}.grade small{color:var(--muted);display:block;margin-top:5px;line-height:1.4}.grade .arrow{float:right;color:var(--purple);font-size:20px}
+.content-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.panel{background:#fff;border:1px solid var(--line);border-radius:24px;padding:24px;box-shadow:var(--shadow)}.panel h3{margin:0 0 6px;font-size:20px}.sub{color:var(--muted);font-size:13px;margin:0 0 18px}.topic-list{display:grid;gap:10px}.topic{border:1px solid var(--line);border-radius:15px;padding:13px;display:flex;align-items:center;gap:12px;cursor:pointer;background:#fff;text-align:left;color:var(--ink)}.topic:hover,.topic.selected{background:#f6f5ff;border-color:#c5c2ff}.topic-num{width:36px;height:36px;border-radius:12px;background:#eeedff;color:var(--purple);display:grid;place-items:center;font-weight:900;flex-shrink:0}.topic span:nth-child(2){font-weight:750;flex:1}.topic small{display:block;color:var(--muted);font-weight:450;margin-top:3px}.topic .chev{color:var(--purple);font-size:19px}
+.lesson-box{background:linear-gradient(145deg,#f1f6ff,#f8f2ff);border-radius:18px;padding:18px;margin-top:14px}.lesson-box h4{margin:0 0 8px;font-size:18px}.lesson-box p{color:#5e6684;line-height:1.65;margin:8px 0}.formula{background:#fff;border:1px dashed #b9b5ff;padding:13px;border-radius:13px;text-align:center;font-size:20px;font-weight:850;color:#5554c9;margin:12px 0}.video-link{display:inline-flex;gap:8px;align-items:center;color:#514ed1;text-decoration:none;font-weight:800;font-size:13px;background:white;border-radius:12px;padding:10px 13px;margin-top:6px}
+.quiz{background:linear-gradient(135deg,#fff7df,#fff0f5);border:1px solid #ffe9b0;border-radius:24px;padding:24px}.quiz-top{display:flex;justify-content:space-between;align-items:center;gap:12px}.quiz-tag{background:white;border-radius:99px;padding:7px 11px;color:#a16b00;font-size:12px;font-weight:850}.question{font-size:22px;font-weight:850;line-height:1.4;margin:20px 0}.answers{display:grid;grid-template-columns:1fr 1fr;gap:10px}.answer{padding:13px 15px;background:#fff;border:1px solid #f2dfb8;border-radius:14px;text-align:left;font-weight:750;color:var(--ink);transition:.15s}.answer:hover{border-color:#e6b94f;transform:translateY(-2px)}.answer.correct{background:#e4fbef;border-color:#65c995;color:#147a4b}.answer.wrong{background:#fff0f0;border-color:#f3a0a0;color:#b33b3b}.feedback{min-height:24px;font-weight:750;margin:13px 0 0;color:#4d5780}.quiz-actions{display:flex;justify-content:space-between;align-items:center;margin-top:15px;gap:10px}.progress{height:8px;background:#fff;border-radius:99px;overflow:hidden;flex:1}.progress span{height:100%;display:block;background:linear-gradient(90deg,#6c67f4,#ff9bbd);width:0%;transition:.3s}.next{background:#252a54;color:white;border-radius:12px;padding:11px 16px;font-weight:800}
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.feature{padding:22px;background:white;border:1px solid var(--line);border-radius:21px}.feature-icon{font-size:27px;width:52px;height:52px;border-radius:16px;background:#f0efff;display:grid;place-items:center;margin-bottom:13px}.feature h3{margin:0 0 7px}.feature p{margin:0;color:var(--muted);font-size:14px;line-height:1.6}
+footer{margin-top:20px;background:#22264e;color:white;padding:35px 0}.foot{display:flex;justify-content:space-between;gap:20px;align-items:center}.foot p{color:#c7c9df;margin:6px 0 0;font-size:13px}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#24284f;color:white;padding:12px 18px;border-radius:12px;box-shadow:var(--shadow);z-index:50;display:none}
+@media(max-width:850px){.hero-card{padding:35px;grid-template-columns:1fr .7fr}.grade-grid{grid-template-columns:repeat(3,1fr)}.navlinks{gap:13px}.content-grid{grid-template-columns:1fr}}
+@media(max-width:620px){.nav{height:66px}.navlinks{display:none;position:absolute;top:66px;left:0;right:0;background:white;padding:18px 5%;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start}.navlinks.open{display:flex}.menu-btn{display:block}.nav-cta{display:none}.hero{padding-top:25px}.hero-card{grid-template-columns:1fr;padding:27px 23px;min-height:0}.hero-art{min-height:210px}.orbit{width:190px;height:190px}.book{width:125px;height:100px;font-size:50px}.hero h1{font-size:42px}.stats{gap:8px;margin-bottom:30px}.stat{padding:12px;gap:8px}.stat-icon{width:35px;height:35px;font-size:17px}.stat strong{font-size:15px}.stat small{font-size:10px}.grade-grid{grid-template-columns:repeat(2,1fr)}.grade:last-child{grid-column:span 2}.section-head{align-items:flex-start;flex-direction:column}.panel,.quiz{padding:18px}.answers{grid-template-columns:1fr}.feature-grid{grid-template-columns:1fr}.foot{flex-direction:column;align-items:flex-start}}
+
+.daily-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.daily-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:21px;box-shadow:var(--shadow)}
+.daily-card .day-tag{display:inline-block;background:#fff2cf;color:#946600;border-radius:99px;padding:6px 10px;font-size:11px;font-weight:900}
+.daily-card h3{margin:13px 0 8px;font-size:19px}
+.daily-card p{color:var(--muted);line-height:1.55;font-size:14px}
+.video-board{margin-top:14px;background:linear-gradient(140deg,#20264b,#343b78);border-radius:17px;padding:17px;color:#fff;min-height:142px;display:flex;flex-direction:column;justify-content:center;gap:9px;overflow:hidden}
+.video-board .step-label{font-size:11px;letter-spacing:1px;color:#bfc6ff;font-weight:900;text-transform:uppercase}
+.video-board .step-text{font-size:19px;font-weight:850;line-height:1.4;animation:popIn .35s ease}
+.video-board .step-note{color:#d9dcff;font-size:13px;line-height:1.5}
+@keyframes popIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.video-controls{display:flex;align-items:center;gap:9px;margin-top:12px;flex-wrap:wrap}
+.video-controls button{border-radius:11px;padding:10px 13px;font-weight:800}
+.play-step{background:var(--purple);color:#fff}
+.reset-step{background:#f0efff;color:var(--purple)}
+.answer-explain{grid-column:1/-1;background:#f1f8ff;border:1px solid #cfe7ff;border-radius:13px;padding:13px;color:#355474;line-height:1.55;font-size:14px;margin-top:3px}
+@media(max-width:620px){.daily-grid{grid-template-columns:1fr}}
+
+
+.account-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.account-panel{background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:var(--shadow)}
+.field{width:100%;padding:12px 13px;border:1px solid #dfe2f6;border-radius:12px;background:#fbfbff;color:var(--ink);outline:none}
+.field:focus{border-color:#8d89ff;box-shadow:0 0 0 3px #625cf01c}
+.form-row{display:flex;gap:9px;margin:10px 0}
+.form-row>*{min-width:0}
+.small-btn{padding:11px 14px;border-radius:12px;background:var(--purple);color:#fff;font-weight:800;white-space:nowrap}
+.soft-btn{padding:10px 13px;border-radius:12px;background:#f0efff;color:var(--purple);font-weight:800}
+.notice{padding:11px 13px;background:#fff8df;border:1px solid #ffe8a8;color:#765b12;border-radius:12px;font-size:12px;line-height:1.5;margin-top:12px}
+.rank-list{display:grid;gap:9px;margin-top:12px}
+.rank-row{display:flex;align-items:center;gap:10px;padding:11px 12px;background:#f8f8ff;border:1px solid var(--line);border-radius:13px}
+.rank-no{width:30px;height:30px;border-radius:10px;background:#eeedff;color:#5954d8;display:grid;place-items:center;font-weight:900}
+.rank-name{font-weight:800;flex:1}.rank-points{font-weight:900;color:#5554c9}
+.video-library{display:grid;gap:10px;margin-top:14px}
+.video-item{border:1px solid var(--line);border-radius:15px;padding:13px;background:#fbfbff}
+.video-item iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:11px;margin-top:10px;background:#e9eafd}
+.video-item a{color:#5554c9;font-weight:800;overflow-wrap:anywhere}
+.teacher-tools{display:grid;gap:9px}
+@media(max-width:620px){.account-grid{grid-template-columns:1fr}.form-row{flex-direction:column}.small-btn{width:100%}}
+
+
+.brand{gap:11px}
+.brand-copy{display:flex;flex-direction:column;gap:1px;line-height:1.1}
+.brand-title{font-size:22px;font-weight:950;letter-spacing:.6px}
+.brand-subtitle{font-size:10px;font-weight:750;letter-spacing:.25px;color:#777da0}
+footer .brand-subtitle{color:#d5d7f0}
+
+</style>
+</head>
+<body>
+<header class="topbar"><div class="wrap nav">
+ <a class="brand" href="#" style="text-decoration:none;color:inherit"><span class="brandmark">π</span><span class="brand-copy"><span class="brand-title">BILIMDON</span><span class="brand-subtitle">Ustoz Shahlo Hakimjonovna</span></span></a>
+ <nav class="navlinks" id="navlinks"><a href="#sinflar">Sinflar</a><a href="#darslar">Darslar</a><a href="#testlar">Testlar</a><a href="#kunlik-masalalar">Kunlik masalalar</a><a href="#kabinet">Kabinet</a><a href="#imkoniyatlar">Imkoniyatlar</a></nav>
+ <a class="nav-cta" href="#sinflar">O‘rganishni boshlash ↗</a><button class="menu-btn" id="menuBtn" aria-label="Menyuni ochish">☰</button>
+</div></header>
+<main>
+<div class="wrap hero"><div class="hero-card">
+ <div><span class="eyebrow">✨ 5–9-SINF MATEMATIKA OLAMI</span><h1>Matematika — endi <span>osonroq!</span></h1><p>Bilimdon bilan mavzularni bosqichma-bosqich o‘rgan, misollarni yech va bilimingni qiziqarli testlar orqali sinab ko‘r.</p>
+ <div class="hero-actions"><a class="primary" href="#sinflar" style="text-decoration:none">Darsni boshlash →</a><a class="secondary" href="#testlar" style="text-decoration:none">Test ishlash ✍️</a></div></div>
+ <div class="hero-art"><div class="orbit"><div class="book">📘</div></div><div class="float f1">＋</div><div class="float f2">÷ ×</div><div class="float f3">x² = ?</div></div>
+</div>
+<div class="stats"><div class="stat"><div class="stat-icon">🎓</div><div><strong>5–9-sinf</strong><small>Har bir bosqich uchun</small></div></div><div class="stat"><div class="stat-icon">🧩</div><div><strong>Interaktiv</strong><small>O‘rgan va mashq qil</small></div></div><div class="stat"><div class="stat-icon">🏆</div><div><strong id="totalScore">0 ball</strong><small>To‘plagan natijangiz</small></div></div></div>
+</div>
+<section id="sinflar"><div class="wrap"><div class="section-head"><div><div class="tiny-label">BIRINCHI QADAM</div><h2>O‘z sinfingni tanla</h2><p>O‘zingga mos sinfni tanlab, mavzularni o‘rganishni boshlagin.</p></div></div>
+<div class="grade-grid" id="gradeGrid">
+<button class="grade active" data-grade="5"><span class="arrow">↗</span><span class="grade-emoji">🧮</span><b>5-sinf</b><small>Sonlar, kasrlar, geometriya</small></button>
+<button class="grade" data-grade="6"><span class="arrow">↗</span><span class="grade-emoji">📐</span><b>6-sinf</b><small>Nisbat, foiz, tenglamalar</small></button>
+<button class="grade" data-grade="7"><span class="arrow">↗</span><span class="grade-emoji">✏️</span><b>7-sinf</b><small>Algebra va geometriya</small></button>
+<button class="grade" data-grade="8"><span class="arrow">↗</span><span class="grade-emoji">📊</span><b>8-sinf</b><small>Funksiyalar va algebra</small></button>
+<button class="grade" data-grade="9"><span class="arrow">↗</span><span class="grade-emoji">🚀</span><b>9-sinf</b><small>Tenglamalar va geometriya</small></button>
+</div></div></section>
+<section id="darslar"><div class="wrap"><div class="section-head"><div><div class="tiny-label">BILIM OLAMIGA SAYOHAT</div><h2><span id="gradeTitle">5-sinf</span> darslari</h2><p>Mavzuni tanla — qisqa tushuntirish va misol bilan o‘rgan.</p></div></div>
+<div class="content-grid"><div class="panel"><h3>📚 Mavzular</h3><p class="sub">Sinfga mos mavzulardan birini tanlang.</p><div class="topic-list" id="topicList"></div></div>
+<div class="panel"><h3>💡 Mavzu tushuntirishi</h3><p class="sub">Sodda izoh, formula va video dars qidiruvi.</p><div id="lessonContent" class="lesson-box" aria-live="polite"></div></div></div></div></section>
+<section id="testlar"><div class="wrap"><div class="section-head"><div><div class="tiny-label">BILIMINGNI SINAB KO‘R</div><h2>Mini test</h2><p>Har bir to‘g‘ri javob uchun 10 ball olasan.</p></div></div>
+<div class="quiz"><div class="quiz-top"><span class="quiz-tag">⚡ <span id="quizGrade">5-sinf</span> • MATEMATIKA</span><span class="quiz-tag" id="qCount">1 / 5</span></div><div class="question" id="question">12 + 8 = ?</div><div class="answers" id="answers"></div><div class="feedback" id="feedback" aria-live="polite"></div><div class="quiz-actions"><div class="progress"><span id="progressBar"></span></div><button class="next" id="nextBtn" disabled>Keyingi →</button></div></div></div></section>
+
+<section id="kunlik-masalalar"><div class="wrap">
+ <div class="section-head"><div><div class="tiny-label">HAR KUNI YANGI TOPSHIRIQ</div><h2>🎬 Bugungi 2 ta qiziqarli masala</h2><p>Masalani o‘qi, keyin yechimini video-dars uslubida bosqichma-bosqich ko‘r.</p></div></div>
+ <div class="daily-grid" id="dailyGrid"></div>
+</div></section>
+
+
+<section id="kabinet"><div class="wrap">
+ <div class="section-head"><div><div class="tiny-label">O‘QUVCHI VA O‘QITUVCHI UCHUN</div><h2>Shaxsiy kabinetlar</h2><p>O‘quvchi natijalarini kiriting, reytingni ko‘ring va video darslarni joylang.</p></div></div>
+ <div class="account-grid">
+  <div class="account-panel">
+   <h3>👩‍🎓 O‘quvchi kabineti</h3><p class="sub">Ismingizni kiriting — natijangiz ushbu qurilmada saqlanadi.</p>
+   <label for="studentName" class="sub">O‘quvchi ismi</label>
+   <div class="form-row"><input id="studentName" class="field" maxlength="30" placeholder="Masalan, Madina"><button id="saveStudent" class="small-btn">Saqlash</button></div>
+   <div class="lesson-box"><b id="studentGreeting">Xush kelibsiz!</b><p id="studentStats">Testlarda to‘plagan ballaringiz shu yerda ko‘rinadi.</p></div>
+   <div class="notice">Bu demo versiyada profil va natijalar faqat shu brauzer qurilmasida saqlanadi. Turli qurilmalardan umumiy hisob uchun server va ma’lumotlar bazasi kerak bo‘ladi.</div>
+  </div>
+  <div class="account-panel">
+   <h3>🏆 O‘quvchilar reytingi</h3><p class="sub">Ushbu qurilmada kiritilgan o‘quvchilar bo‘yicha ballar.</p>
+   <div class="rank-list" id="leaderboard"><div class="rank-row">Hozircha reyting bo‘sh. O‘quvchi ismini saqlang.</div></div>
+   <div class="form-row"><button class="soft-btn" id="refreshRank">↻ Reytingni yangilash</button><button class="soft-btn" id="clearRank">Tozalash</button></div>
+  </div>
+  <div class="account-panel" style="grid-column:1/-1">
+   <h3>🎬 O‘qituvchi kabineti — video darslar</h3><p class="sub">YouTube video havolasini joylang. Video darslar saytda ko‘rinadi.</p>
+   <div class="teacher-tools">
+    <input id="videoTitle" class="field" maxlength="80" placeholder="Video dars nomi, masalan: Kasrlarni qo‘shish">
+    <input id="videoUrl" class="field" placeholder="YouTube havolasini kiriting">
+    <div class="form-row"><select id="videoGrade" class="field"><option value="5">5-sinf</option><option value="6">6-sinf</option><option value="7">7-sinf</option><option value="8">8-sinf</option><option value="9">9-sinf</option></select><button id="addVideo" class="small-btn">+ Video qo‘shish</button></div>
+   </div>
+   <div id="videoLibrary" class="video-library"><p class="sub">Hozircha video dars qo‘shilmagan.</p></div>
+   <div class="notice">O‘qituvchi kabineti hozircha umumiy demo boshqaruv paneli. Haqiqiy login-parol, rollar, o‘quvchilarni turli qurilmalardan boshqarish va xavfsiz ma’lumot saqlash uchun backend/server kerak.</div>
+  </div>
+ </div>
+</div></section>
+
+<section id="imkoniyatlar"><div class="wrap"><div class="section-head"><div><div class="tiny-label">BILIMDON AFZALLIKLARI</div><h2>O‘rganishning yangi usuli</h2><p>Matematikani tushunish, mashq qilish va natijani kuzatish bir joyda.</p></div></div>
+<div class="feature-grid"><div class="feature"><div class="feature-icon">🎥</div><h3>Video darslar</h3><p>Har bir mavzu bo‘yicha video darslarni topish uchun qulay havolalar. O‘qituvchi o‘z videolarini ham qo‘shishi mumkin.</p></div><div class="feature"><div class="feature-icon">🧠</div><h3>Interaktiv testlar</h3><p>Javobni belgila, natijani darhol ko‘r va qaysi savollarda adashganingni bilib ol.</p></div><div class="feature"><div class="feature-icon">🏅</div><h3>Shaxsiy natija</h3><p>To‘plangan ballar ushbu qurilmada saqlanadi. Mashq qilgan sari natijangni oshirib bor.</p></div></div></div></section>
+</main>
+<footer><div class="wrap foot"><div><div class="brand"><span class="brandmark">π</span><span class="brand-copy"><span class="brand-title">BILIMDON</span><span class="brand-subtitle">Ustoz Shahlo Hakimjonovna</span></span></div><p>Bilim bilan kelajak sari! ✨</p></div><p>© 2026 BILIMDON. Matematika ta’lim platformasi.</p></div></footer>
+<div class="toast" id="toast"></div>
+<script>
+const lessons={
+5:[
+["Natural sonlar","Natural sonlar sanashda ishlatiladi: 1, 2, 3, 4, ... . Ular yordamida buyumlar soni va tartibini ifodalaymiz.","Natural sonlar: 1, 2, 3, 4, 5, ...","5-sinf natural sonlar mavzusi matematika darsi"],
+["Oddiy kasrlar","Kasr butunning teng qismlaridan nechtasi olinganini bildiradi. Maxraj butun nechta teng qismga bo‘linganini, surat esa olingan qismlar sonini ko‘rsatadi.","a/b — surat a, maxraj b (b ≠ 0)","5-sinf oddiy kasrlar mavzusi matematika darsi"],
+["O‘nli kasrlar","Vergul bilan yoziladigan kasrlar o‘nli kasrlar deyiladi. Masalan, 0,5 — bu yarimga teng.","0,5 = 5/10 = 1/2","5-sinf o'nli kasrlar mavzusi matematika darsi"],
+["Perimetr va yuza","Perimetr shakl chegarasi uzunliklarining yig‘indisi. To‘g‘ri to‘rtburchak yuzasi uzunlik va en ko‘paytmasiga teng.","P = 2(a+b)   •   S = a × b","5-sinf perimetr yuza matematika darsi"]
+],
+6:[
+["Bo‘linish belgilari","2 ga bo‘linadigan sonning oxirgi raqami juft bo‘ladi. 5 ga bo‘linish uchun oxirgi raqam 0 yoki 5 bo‘lishi kerak.","2 ga: 0, 2, 4, 6, 8  •  5 ga: 0 yoki 5","6-sinf bo'linish belgilari matematika"],
+["Nisbat va proporsiya","Nisbat ikki miqdorni bo‘lish orqali taqqoslaydi. Proporsiya esa ikki nisbatning tengligidir.","a : b = c : d  →  a/b = c/d","6-sinf nisbat proporsiya matematika"],
+["Foizlar","Foiz sonning yuzdan bir ulushidir. Foizni kasrga aylantirish uchun 100 ga bo‘lamiz.","25% = 25/100 = 0,25","6-sinf foizlar matematika darsi"],
+["Tenglamalar","Tenglama noma’lum son qatnashgan tenglikdir. Yechim — tenglikni to‘g‘ri qiladigan qiymat.","x + 7 = 12  →  x = 5","6-sinf tenglamalar matematika"]
+],
+7:[
+["Butun ko‘rsatkichli daraja","Daraja bir xil ko‘paytuvchilar ko‘paytmasini qisqa yozish usulidir.","aⁿ = a · a · ... · a","7-sinf daraja mavzusi matematika"],
+["Birhad va ko‘phad","Birhad son va o‘zgaruvchilar ko‘paytmasidan tuziladi. Ko‘phad esa bir nechta hadlarning yig‘indisidir.","3x² — birhad;  x² + 2x + 1 — ko‘phad","7-sinf birhad ko'phad algebra"],
+["Chiziqli tenglama","Bir noma’lumli chiziqli tenglama odatda ax + b = 0 ko‘rinishida bo‘ladi.","2x + 6 = 0  →  x = −3","7-sinf chiziqli tenglama matematika"],
+["Uchburchak burchaklari","Uchburchak ichki burchaklarining yig‘indisi 180° ga teng.","α + β + γ = 180°","7-sinf uchburchak burchaklari geometriya"]
+],
+8:[
+["Kvadrat ildiz","Kvadrat ildiz — kvadrati berilgan songa teng bo‘lgan nomanfiy son.","√49 = 7, chunki 7² = 49","8-sinf kvadrat ildiz matematika"],
+["Kvadrat tenglama","Kvadrat tenglama ax² + bx + c = 0 ko‘rinishida bo‘ladi, bunda a ≠ 0.","D = b² − 4ac","8-sinf kvadrat tenglama matematika"],
+["Funksiya va grafik","Funksiya bir o‘zgaruvchining har bir qiymatiga ikkinchi o‘zgaruvchining yagona qiymatini mos qo‘yadi.","y = kx + b","8-sinf funksiya grafik matematika"],
+["Pifagor teoremasi","To‘g‘ri burchakli uchburchakda gipotenuza kvadrati katetlar kvadratlari yig‘indisiga teng.","c² = a² + b²","8-sinf Pifagor teoremasi"]
+],
+9:[
+["Kvadrat funksiya","Kvadrat funksiya y = ax² + bx + c ko‘rinishida beriladi. Uning grafigi parabola bo‘ladi.","y = ax² + bx + c, a ≠ 0","9-sinf kvadrat funksiya matematika"],
+["Kvadrat tenglamani yechish","Diskriminant orqali ildizlar sonini va qiymatlarini aniqlash mumkin.","D = b² − 4ac;  x = (−b ± √D)/(2a)","9-sinf kvadrat tenglama diskriminant"],
+["Arifmetik progressiya","Arifmetik progressiyada ketma-ket hadlar ayirmasi o‘zgarmas bo‘ladi.","aₙ = a₁ + (n−1)d","9-sinf arifmetik progressiya"],
+["Trigonometriya asoslari","To‘g‘ri burchakli uchburchakda sinus, kosinus va tangens burchak bilan tomonlar nisbatini bog‘laydi.","sin α = qarshi katet / gipotenuza","9-sinf trigonometriya asoslari"]
+]};
+const quizzes={
+5:[["36 ÷ 6 = ?",["5","6","7","8"],1],["1/2 ning o‘nli yozuvi qaysi?",["0,2","0,25","0,5","1,2"],2],["Tomoni 4 sm bo‘lgan kvadrat perimetri?",["8 sm","12 sm","16 sm","20 sm"],2],["25 + 17 = ?",["32","42","43","52"],1],["1 metr necha santimetr?",["10","100","1000","50"],1]],
+6:[["200 ning 25 foizi nechaga teng?",["25","40","50","75"],2],["3 : 4 nisbatning kasr ko‘rinishi?",["4/3","3/4","3/7","4/7"],1],["x + 9 = 15. x = ?",["4","5","6","7"],2],["Eng kichik tub son?",["1","2","3","0"],1],["0,5 kasr ko‘rinishida?",["1/5","1/4","1/2","5/1"],2]],
+7:[["2³ nechaga teng?",["6","8","9","12"],1],["3x = 21. x = ?",["6","7","8","9"],1],["Uchburchak burchaklari yig‘indisi?",["90°","120°","180°","360°"],2],["5a + 2a = ?",["7","7a","10a","a"],1],["−4 + 9 = ?",["−13","−5","5","13"],2]],
+8:[["√64 nechaga teng?",["6","7","8","9"],2],["x² = 25 tenglamaning nechta haqiqiy ildizi bor?",["0","1","2","3"],2],["Pifagor teoremasi qaysi?",["a+b=c","a²+b²=c²","a²−b²=c","2a+b"],1],["2x + 4 = 10. x = ?",["2","3","4","5"],1],["y = 3x da x=2 bo‘lsa y=?",["5","6","7","8"],1]],
+9:[["D = b² − 4ac nimani bildiradi?",["Perimetr","Diskriminant","Yuza","Nisbat"],1],["√121 nechaga teng?",["9","10","11","12"],2],["Arifmetik progressiyada d nimani bildiradi?",["Birinchi had","Ayirma","Hadlar soni","Yig‘indi"],1],["sin 30° nechaga teng?",["0","1/2","√2/2","1"],1],["x² − 9 = 0 ildizlari?",["3 va −3","9 va −9","0 va 9","3 va 0"],0]]
+};
+
+const quizExplanations={
+5:["36 ni 6 ga bo‘lamiz: 6 × 6 = 36. Demak, javob 6.","1/2 ni o‘nli kasrga aylantirish uchun 1 ni 2 ga bo‘lamiz: 1 ÷ 2 = 0,5.","Kvadrat perimetri to‘rtta teng tomon yig‘indisi: 4 × 4 = 16 sm.","25 + 17 = 25 + 10 + 7 = 42.","1 metr = 100 santimetr."],
+6:["200 ning 25 foizi: 200 × 25 ÷ 100 = 50.","3 : 4 nisbat kasr ko‘rinishida 3/4 deb yoziladi.","x + 9 = 15. Har ikki tomondan 9 ni ayiramiz: x = 6.","Eng kichik tub son 2. U faqat 1 ga va o‘ziga bo‘linadi.","0,5 = 5/10 = 1/2."],
+7:["2³ = 2 × 2 × 2 = 8.","3x = 21. Har ikki tomonni 3 ga bo‘lamiz: x = 7.","Har qanday uchburchak ichki burchaklari yig‘indisi 180°.","5a + 2a = (5 + 2)a = 7a.","−4 + 9 = 5."],
+8:["√64 = 8, chunki 8 × 8 = 64.","x² = 25 tenglamada x = 5 va x = −5. Demak, ikkita haqiqiy ildiz bor.","Pifagor teoremasi: a² + b² = c². Bu yerda c — gipotenuza.","2x + 4 = 10. 2x = 6, demak x = 3.","y = 3x. x = 2 bo‘lsa, y = 3 × 2 = 6."],
+9:["D = b² − 4ac — kvadrat tenglamaning diskriminanti.","√121 = 11, chunki 11² = 121.","Arifmetik progressiyada d — ketma-ket hadlar orasidagi o‘zgarmas ayirma.","sin 30° = 1/2.","x² − 9 = 0 → x² = 9 → x = 3 yoki x = −3."]
+};
+Object.keys(quizExplanations).forEach(g=>quizzes[g].forEach((q,i)=>q.push(quizExplanations[g][i])));
+
+const dailyProblems=[
+ {title:"Shirinliklar masalasi",question:"Dilnozada 24 ta konfet bor. U konfetlarning 1/3 qismini singlisiga berdi. Dilnozada nechta konfet qoldi?",steps:[["1-qadam · Berilgan","Jami 24 ta konfet. Uning 1/3 qismi berildi.","Avval berilgan konfetlar sonini topamiz."],["2-qadam · Hisoblaymiz","24 ÷ 3 = 8 ta","Demak, singlisiga 8 ta konfet berilgan."],["3-qadam · Ayiramiz","24 − 8 = 16 ta","Jami konfetdan berilganini ayiramiz."],["Javob","16 ta konfet qoldi! 🎉","Kasrning 1/3 qismini topish uchun sonni 3 ga bo‘ldik."]]},
+ {title:"Sayohat masalasi",question:"Velosipedchi 1 soatda 12 km yo‘l yuradi. Shu tezlikda 3 soatda necha kilometr yuradi?",steps:[["1-qadam · Berilgan","Tezlik — 12 km/soat. Vaqt — 3 soat.","Masofa tezlikni vaqtga ko‘paytirish orqali topiladi."],["2-qadam · Formula","S = v × t","S — masofa, v — tezlik, t — vaqt."],["3-qadam · Hisoblaymiz","S = 12 × 3 = 36 km","12 ni 3 ga ko‘paytiramiz."],["Javob","36 kilometr! 🚴","Velosipedchi 3 soatda 36 km yo‘l yuradi."]]},
+ {title:"Bog‘dagi daraxtlar",question:"Bog‘da 5 qator daraxt bor. Har bir qatorda 8 tadan daraxt ekilgan. Jami nechta daraxt bor?",steps:[["1-qadam · Berilgan","5 qator, har birida 8 tadan daraxt.","Bir xil miqdor takrorlangan, ko‘paytirish qulay."],["2-qadam · Amal","5 × 8","Qatorlar sonini har bir qatordagi daraxtlar soniga ko‘paytiramiz."],["Javob","40 ta daraxt! 🌳","Bog‘da jami 40 ta daraxt bor."]]},
+ {title:"Daftarlar chegirmasi",question:"Bir daftar 6 000 so‘m turadi. 4 ta daftar qancha turadi?",steps:[["1-qadam · Berilgan","1 daftar — 6 000 so‘m. 4 ta daftar kerak.","Bitta daftar narxini soniga ko‘paytiramiz."],["2-qadam · Hisoblaymiz","6 000 × 4 = 24 000","6 ni 4 ga ko‘paytirib, mingni saqlaymiz."],["Javob","24 000 so‘m! 📒","4 ta daftar uchun 24 000 so‘m kerak."]]},
+ {title:"Kvadratning siri",question:"Kvadratning bir tomoni 7 sm. Uning perimetri nechaga teng?",steps:[["1-qadam · Xossasi","Kvadratning 4 ta tomoni teng.","Perimetr — barcha tomonlar yig‘indisi."],["2-qadam · Formula","P = 4 × a","a — kvadratning bir tomoni."],["Hisoblaymiz","P = 4 × 7 = 28 sm","To‘rt tomonni qo‘shamiz."],["Javob","28 santimetr! 📐","Kvadrat perimetri 28 sm ga teng."]]},
+ {title:"Kitob o‘qish rejasi",question:"Malika 5 kunda har kuni 12 betdan kitob o‘qidi. U jami necha bet o‘qidi?",steps:[["1-qadam · Berilgan","5 kun, har kuni 12 bet.","Har kungi betlar soni bir xil."],["2-qadam · Amal","12 × 5 = 60","Kunlar sonini kunlik betlarga ko‘paytiramiz."],["Javob","60 bet! 📚","Malika jami 60 bet o‘qigan."]]}
+];
+function renderDaily(){
+ const start=Math.floor(Date.now()/86400000)%dailyProblems.length;
+ const todays=[dailyProblems[start],dailyProblems[(start+1)%dailyProblems.length]];
+ $("dailyGrid").innerHTML=todays.map((p,i)=>`<article class="daily-card"><span class="day-tag">BUGUNGI MASALA ${i+1}</span><h3>${p.title}</h3><p>${p.question}</p><div class="video-board" id="dailyBoard${i}"><span class="step-label">VIDEO-DARS · 0/${p.steps.length}</span><div class="step-text">▶ Yechimni ko‘rishga tayyormisiz?</div><div class="step-note">Tugmani bosing — yechim bosqichma-bosqich namoyish etiladi.</div></div><div class="video-controls"><button class="play-step" data-play="${i}">▶ Tushuntirishni boshlash</button><button class="reset-step" data-reset="${i}">↻ Boshidan</button></div></article>`).join("");
+ todays.forEach((p,i)=>{let step=-1;const show=()=>{const board=$("dailyBoard"+i);if(step<0){board.innerHTML=`<span class="step-label">VIDEO-DARS · KIRISH</span><div class="step-text">${p.question}</div><div class="step-note">Masalani diqqat bilan o‘qing. Keyingi bosqichda yechimni ko‘ramiz.</div>`;return}const s=p.steps[step];board.innerHTML=`<span class="step-label">${s[0]} · ${step+1}/${p.steps.length}</span><div class="step-text">${s[1]}</div><div class="step-note">${s[2]}</div>`};
+ $("dailyGrid").querySelector(`[data-play="${i}"]`).addEventListener("click",()=>{step=Math.min(step+1,p.steps.length-1);show();const btn=$("dailyGrid").querySelector(`[data-play="${i}"]`);btn.textContent=step===p.steps.length-1?"✓ Yakunlandi":"▶ Keyingi bosqich";});
+ $("dailyGrid").querySelector(`[data-reset="${i}"]`).addEventListener("click",()=>{step=-1;show();$("dailyGrid").querySelector(`[data-play="${i}"]`).textContent="▶ Tushuntirishni boshlash";});
+ });
+}
+
+let grade=5,topicIndex=0,qIndex=0,answered=false,score=Number(localStorage.getItem("bilimdonScore")||0);
+const $=id=>document.getElementById(id);
+function updateScore(){$("totalScore").textContent=score+" ball";localStorage.setItem("bilimdonScore",score)}
+function renderTopics(){const data=lessons[grade];$("gradeTitle").textContent=grade+"-sinf";$("quizGrade").textContent=grade+"-sinf";$("topicList").innerHTML=data.map((t,i)=>`<button class="topic ${i===topicIndex?'selected':''}" data-topic="${i}"><span class="topic-num">${String(i+1).padStart(2,'0')}</span><span>${t[0]}<small>${i===0?'Asosiy tushuncha':'Mavzuni o‘rganish'}</small></span><span class="chev">›</span></button>`).join("");document.querySelectorAll(".topic").forEach(b=>b.addEventListener("click",()=>{topicIndex=+b.dataset.topic;renderTopics()}));renderLesson()}
+function renderLesson(){const t=lessons[grade][topicIndex];$("lessonContent").innerHTML=`<h4>${t[0]}</h4><p>${t[1]}</p><div class="formula">${t[2]}</div><p><b>Maslahat:</b> Formulani daftaringga yozib ol va o‘zing ham shunga o‘xshash misol tuzib ko‘r.</p><a class="video-link" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=${encodeURIComponent(t[3])}">▶ Video darslarni izlash</a>`}
+function setGrade(g){grade=g;topicIndex=0;qIndex=0;answered=false;document.querySelectorAll(".grade").forEach(b=>b.classList.toggle("active",+b.dataset.grade===g));renderTopics();renderQuiz()}
+function renderQuiz(){const q=quizzes[grade][qIndex];$("qCount").textContent=(qIndex+1)+" / "+quizzes[grade].length;$("question").textContent=q[0];$("answers").innerHTML=q[1].map((a,i)=>`<button class="answer" data-answer="${i}">${String.fromCharCode(65+i)}. ${a}</button>`).join("");$("feedback").textContent="";$("nextBtn").disabled=true;$("nextBtn").textContent=qIndex===quizzes[grade].length-1?"Testni yakunlash ✓":"Keyingi →";$("progressBar").style.width=(qIndex/quizzes[grade].length*100)+"%";answered=false;document.querySelectorAll(".answer").forEach(b=>b.addEventListener("click",()=>chooseAnswer(+b.dataset.answer)))}
+function chooseAnswer(n){if(answered)return;answered=true;const q=quizzes[grade][qIndex];document.querySelectorAll(".answer").forEach((b,i)=>{b.disabled=true;if(i===q[2])b.classList.add("correct");if(i===n&&n!==q[2])b.classList.add("wrong")});if(n===q[2]){score+=10;updateScore();$("feedback").textContent="Ajoyib! To‘g‘ri javob. +10 ball 🎉";$("feedback").style.color="#168455"}else{$("feedback").textContent="Harakat yaxshi! To‘g‘ri javob: "+q[1][q[2]];$("feedback").style.color="#b34b4b"}const why=q[3]||("To‘g‘ri javob — "+q[1][q[2]]+". Javob variantlarini hisob-kitob bilan solishtirib tekshir.");const box=document.createElement("div");box.className="answer-explain";box.innerHTML="<b>📝 Javob va tushuntirish:</b> "+why;$("answers").appendChild(box);$("nextBtn").disabled=false}
+$("nextBtn").addEventListener("click",()=>{if(!answered)return;if(qIndex<quizzes[grade].length-1){qIndex++;renderQuiz()}else{$("question").textContent="Barakalla! Test yakunlandi 🎉";$("answers").innerHTML=`<div style="grid-column:1/-1;background:white;border-radius:14px;padding:18px;text-align:center"><div style="font-size:35px">🏆</div><b>${quizzes[grade].length} ta savol yakunlandi!</b><p style="color:#68708e">Jami ball: ${score}</p><button class="primary" id="restart" style="margin-top:8px">Qayta ishlash ↻</button></div>`;$("feedback").textContent="";$("nextBtn").disabled=true;$("progressBar").style.width="100%";$("restart").addEventListener("click",()=>{qIndex=0;renderQuiz()})}});
+document.querySelectorAll(".grade").forEach(b=>b.addEventListener("click",()=>setGrade(+b.dataset.grade)));
+$("menuBtn").addEventListener("click",()=>$("navlinks").classList.toggle("open"));
+document.querySelectorAll(".navlinks a").forEach(a=>a.addEventListener("click",()=>$("navlinks").classList.remove("open")));
+
+function safeText(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function getStudents(){try{return JSON.parse(localStorage.getItem("bilimdonStudents")||"[]")}catch(e){return []}}
+function saveStudents(a){localStorage.setItem("bilimdonStudents",JSON.stringify(a))}
+function renderLeaderboard(){const list=getStudents().sort((a,b)=>b.score-a.score);$("leaderboard").innerHTML=list.length?list.map((s,i)=>`<div class="rank-row"><span class="rank-no">${i+1}</span><span class="rank-name">${safeText(s.name)}</span><span class="rank-points">${s.score} ball</span></div>`).join(""):'<div class="rank-row">Hozircha reyting bo‘sh. O‘quvchi ismini saqlang.</div>'}
+function refreshStudent(){const name=localStorage.getItem("bilimdonStudentName")||"";$("studentName").value=name;$("studentGreeting").textContent=name?("Salom, "+name+"! 👋"):"Xush kelibsiz!";$("studentStats").textContent="Joriy qurilmada to‘plangan ball: "+score+" ball."}
+$("saveStudent").addEventListener("click",()=>{const name=$("studentName").value.trim();if(!name){alert("Iltimos, ismingizni kiriting.");return}localStorage.setItem("bilimdonStudentName",name);const arr=getStudents();const found=arr.find(x=>x.name.toLowerCase()===name.toLowerCase());if(found)found.score=score;else arr.push({name,score});saveStudents(arr);refreshStudent();renderLeaderboard();});
+$("refreshRank").addEventListener("click",renderLeaderboard);
+$("clearRank").addEventListener("click",()=>{if(confirm("Ushbu brauzerdagi reytingni tozalaysizmi?")){localStorage.removeItem("bilimdonStudents");renderLeaderboard()}});
+function youtubeEmbed(raw){try{const u=new URL(raw);let id="";if(u.hostname.includes("youtu.be"))id=u.pathname.slice(1);else if(u.hostname.includes("youtube.com")){if(u.pathname==="/watch")id=u.searchParams.get("v")||"";else if(u.pathname.startsWith("/embed/"))id=u.pathname.split("/")[2];else if(u.pathname.startsWith("/shorts/"))id=u.pathname.split("/")[2]}return /^[a-zA-Z0-9_-]{6,}$/.test(id)?"https://www.youtube-nocookie.com/embed/"+id:null}catch(e){return null}}
+function getVideos(){try{return JSON.parse(localStorage.getItem("bilimdonVideos")||"[]")}catch(e){return []}}
+function renderVideos(){const videos=getVideos();$("videoLibrary").innerHTML=videos.length?videos.map((v,i)=>`<div class="video-item"><b>${safeText(v.title)}</b> <span class="sub">· ${v.grade}-sinf</span><iframe src="${v.embed}" title="${safeText(v.title)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><button class="soft-btn" data-remove-video="${i}">Videoni o‘chirish</button></div>`).join(""):'<p class="sub">Hozircha video dars qo‘shilmagan.</p>';document.querySelectorAll("[data-remove-video]").forEach(b=>b.addEventListener("click",()=>{const a=getVideos();a.splice(+b.dataset.removeVideo,1);localStorage.setItem("bilimdonVideos",JSON.stringify(a));renderVideos()}))}
+$("addVideo").addEventListener("click",()=>{const title=$("videoTitle").value.trim(),url=$("videoUrl").value.trim(),embed=youtubeEmbed(url);if(!title||!url){alert("Video nomi va havolasini kiriting.");return}if(!embed){alert("YouTube video havolasi noto‘g‘ri. Oddiy YouTube video havolasidan foydalaning.");return}const a=getVideos();a.unshift({title,grade:$("videoGrade").value,embed});localStorage.setItem("bilimdonVideos",JSON.stringify(a));$("videoTitle").value="";$("videoUrl").value="";renderVideos()});
+const originalUpdateScore=updateScore;
+updateScore=function(){originalUpdateScore();refreshStudent();const name=localStorage.getItem("bilimdonStudentName");if(name){const a=getStudents();const s=a.find(x=>x.name.toLowerCase()===name.toLowerCase());if(s){s.score=score;saveStudents(a);renderLeaderboard()}}};
+
+updateScore();renderTopics();renderQuiz();renderDaily();refreshStudent();renderLeaderboard();renderVideos();
+</script>
+</body></html>
